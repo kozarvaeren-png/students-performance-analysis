@@ -81,15 +81,21 @@ low_counts = (df[grade_columssss] <= 40).sum(axis=1)
 means = df[grade_columssss].mean()
 df["status_low"] = np.where(low_counts >= 3,"fail","pass")
 
-means.plot(kind="bar", figsize=(8,4))
+plt.figure(figsize=(9,5))
+means.plot(kind="bar")
 plt.title("averages for each course")
 plt.xlabel("courses")
 plt.ylabel("average")
+plt.xticks(rotation=30,ha="right")
+plt.tight_layout()
 
 
+
+plt.figure(figsize=(7,4))
 plt.hist(df['grades_for_calculus'],bins=10,edgecolor="pink")
 plt.title("calculus grades")
 plt.xlabel("grades")
 plt.ylabel("number of students")
-
+plt.tight_layout()
 plt.show()
+
